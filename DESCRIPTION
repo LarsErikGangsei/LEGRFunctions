@@ -7,6 +7,7 @@ Authors@R:
            family = "Gangsei",
            role = c("aut","cph"),
            email = "lars.erik.gangsei@gmail.com"))
+Maintainer: Lars Erik Gangsei <lars.erik.gangsei@gmail.com>
 Description: Contains generic functions used by Lars Erik Gangsei.
 URL: https://github.com/LarsErikGangsei/LEG_RFunctions
 Depends: R (>= 3.5.0)
