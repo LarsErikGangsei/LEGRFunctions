@@ -1,12 +1,11 @@
-Package: LEG_RFunctions
+Package: LEGRFunctions
 Title: Generic R functions made by Lars Erik Gangsei.
 Version: 0.1
 Date: 2024-05-14
-Authors@R: 
-  c(person(given = "Lars Erik",
-           family = "Gangsei",
-           role = c("aut","cph","cre"),
-           email = "lars.erik.gangsei@gmail.com"))
+Authors@R: c(person(given = "Lars Erik",
+            family = "Gangsei",
+            role = c("aut","cph","cre"),
+            email = "lars.erik.gangsei@gmail.com"))
 Maintainer: Lars Erik Gangsei <lars.erik.gangsei@gmail.com>
 Description: Contains generic functions used by Lars Erik Gangsei.
 URL: https://github.com/LarsErikGangsei/LEG_RFunctions
@@ -22,5 +21,3 @@ Encoding: UTF-8
 Language: en-GB
 Roxygen: list(markdown = FALSE)
 RoxygenNote: 7.2.3
-VignetteBuilder:
-
