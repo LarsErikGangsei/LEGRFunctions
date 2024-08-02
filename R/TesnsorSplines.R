@@ -14,6 +14,7 @@
 #' @param degree [\code{integer}] passed directly to \code{splines2::bSpline()}
 #' @param intercept [\code{logical}] passed directly to \code{splines2::bSpline()}
 #' @param sparce [\code{logical}] set til \code{TRUE} if a sparce matrix is to be returned.
+#' @param dimnames [code{character}] naming of the 'X', 'Y' and 'Z' variable
 #' 
 #' @return A (possibly) sparce matrix returning the outer product defined by input, 
 #' and evaluation of B(asic) splines as defined either by the knot sequenses and 
@@ -37,7 +38,8 @@
 #'
 #' @export
 TensorSplines <- function(XYZ,df = c(5,5,5),knots = NULL,degree = 3,
-                          intercept = TRUE,sparce = FALSE) 
+                          intercept = TRUE,sparce = FALSE,
+                          dimnames = c('X','Y','Z')) 
 {
   if(is.null(knots))
   {
@@ -55,13 +57,40 @@ TensorSplines <- function(XYZ,df = c(5,5,5),knots = NULL,degree = 3,
     BZ <- bSpline(XYZ[,3],knots = knots[[3]][2:(length(knots[[3]])-1)],
                   Boundary.knots = knots[[3]][c(1,length(knots[[3]]))],
                   intercept = intercept)
+
   }
   
-  # Make the outer products as Kronecker products.
-  BXYZ <- kronecker(kronecker(BX, BY), BZ)
+  attributes(BX) <-attributes(BX)["dim"]
+  attributes(BY) <-attributes(BY)["dim"]
+  attributes(BZ) <-attributes(BZ)["dim"]
   
-  # If "Sparce ==TRUE", return as sparce matrix
-  BXYZ <- as(BXYZ, "sparseMatrix")
+  if(sparce == TRUE)
+  {BX <- as(BX, "sparseMatrix")
+  BY <- as(BY, "sparseMatrix")
+  BZ <- as(BZ, "sparseMatrix")}
+  
+  colnames(BX) <- paste(dimnames[1],1:dim(BX)[2],sep = '')
+  colnames(BY) <- paste(dimnames[2],1:dim(BY)[2],sep = '')
+  colnames(BZ) <- paste(dimnames[3],1:dim(BZ)[2],sep = '')
+  
+  
+  # Make the outer products.
+  nn <- dim(XYZ)[1]
+  BXYZ <- t(mapply(kronecker,split(BX,f = 1:nn),split(BY,f = 1:nn),
+                 MoreArgs = list(make.dimnames = TRUE)))
+  
+  BXYZ <- t(mapply(kronecker,split(BXYZ,f = 1:nn),split(BZ,f = 1:nn),
+                   MoreArgs = list(make.dimnames = TRUE)))
+  
+  #BXYZ <- kronecker(kronecker(BX, BY,make.dimnames = TRUE), 
+  #                 BZ,make.dimnames = TRUE)
+  
+  colnames(BXYZ) <- apply(expand.grid(colnames(BZ),colnames(BY),
+                      colnames(BX))[,c(3,2,1)],1,paste,collapse = '-')
+  
+  # If "sparce ==TRUE", return as sparce matrix
+  if(sparce == TRUE)
+  {BXYZ <- as(BXYZ, "sparseMatrix")}
  
   return(BXYZ) 
 }
