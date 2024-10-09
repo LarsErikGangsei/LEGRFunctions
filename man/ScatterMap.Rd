@@ -33,6 +33,9 @@ as argument \code{size}.}
 \item{scale_lims}{[\code{numeric}]: Vector of length two providing limits 
 of the scale used in color grading}
 }
+\value{
+To come....
+}
 \description{
 The function \code{ScatterMap} returns a map (land/ ocean) with 
 poinnts on top. Colors according to strength in input.

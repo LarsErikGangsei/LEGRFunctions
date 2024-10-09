@@ -16,7 +16,7 @@
 #' @param m0 [\code{numeric vector}] Prior mean for (latent) parameter vector \eqn{\theta}.
 #' @param C0 [\code{numeric matrix}] Prior variance for (latent) parameter vector \eqn{\theta}.
 #' @param W [\code{numeric matrix}] System variance.
-#' @param delta [\code{numeric scalar]. Discount factor. Only used if \code{W} is \code{NULL}. 
+#' @param delta [\code{numeric scalar}]. Discount factor. Only used if \code{W} is \code{NULL}. 
 #' @return A list with elements at, Rt,mt,Ct,ft,Qt,pt,etaHat,vHat,Qst
 #'
 #' @author Lars Erik Gangsei\cr

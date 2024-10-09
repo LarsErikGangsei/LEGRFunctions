@@ -14,7 +14,8 @@ License: MIT - licence
 Imports:
   splines,
   lubridate,
-  splines2,
+  ggplot2,
+  tidyverse,
   Matrix
 Suggests:
 Remotes: 

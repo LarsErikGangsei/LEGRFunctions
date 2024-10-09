@@ -18,14 +18,15 @@
 #' @param scale_lims [\code{numeric}]: Vector of length two providing limits 
 #' of the scale used in color grading
 #' 
-#' @return 
+#' @return To come....
 #' 
 #'
 #' @author Lars Erik Gangsei\cr
 #' lars.erik.gangsei@@vetinst.no\cr
 #' +47 950 61 231
 #' 
-#' @import ggplot,rnaturalearth
+#' @import ggplot2
+#' @import rnaturalearth
 #' 
 #' 
 #' @examples

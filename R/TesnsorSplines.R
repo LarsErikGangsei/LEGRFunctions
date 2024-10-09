@@ -25,7 +25,8 @@
 #' lars.erik.gangsei@@vetinst.no\cr
 #' +47 950 61 231
 #' 
-#' @import splines2, Matrix
+#' @import splines
+#' @import Matrix
 #' 
 #' 
 #' @examples

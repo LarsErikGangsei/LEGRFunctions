@@ -23,6 +23,8 @@ levels at associated time step.}
 \item{C0}{[\code{numeric matrix}] Prior variance for (latent) parameter vector \eqn{\theta}.}
 
 \item{W}{[\code{numeric matrix}] System variance.}
+
+\item{delta}{[\code{numeric scalar}]. Discount factor. Only used if \code{W} is \code{NULL}.}
 }
 \value{
 A list with elements at, Rt,mt,Ct,ft,Qt,pt,etaHat,vHat,Qst
