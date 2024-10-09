@@ -1,6 +1,6 @@
 #' @title ScatterMap: Points in a red - green scale on top of maps. 
 #' @description The function \code{ScatterMap} returns a map (land/ ocean) with 
-#' poinnts on top. Colors acording to strength in input. 
+#' poinnts on top. Colors according to strength in input. 
 #' @details ...
 #' @param Country_name [\code{character}] has to be listed in 
 #' \code{rnaturalearth::ne_countries()$name}.
