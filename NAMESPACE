@@ -2,6 +2,7 @@
 
 export(ContrastSplines)
 export(DGLM_Multivariate_Binominal)
+export(DLM_Get_GF)
 export(ScatterMap)
 export(TensorSplines)
 export(YearSplines)
