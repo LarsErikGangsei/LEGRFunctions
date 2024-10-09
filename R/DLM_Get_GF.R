@@ -30,8 +30,8 @@ DLM_Get_GF <- function(q=1,trend = FALSE,harmonic = FALSE,period = 365,
                       freq = 1,n_waves = 1)
   {
   # The first block, Identity for the number of levels
-  GG <- diag(qq)
-  FF <- diag(qq)
+  GG <- diag(q)
+  FF <- diag(q)
   
   # Add trend
   if(trend == TRUE)
