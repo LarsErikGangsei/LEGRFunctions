@@ -53,5 +53,5 @@ DLM_Get_GF <- function(q=1,trend = FALSE,harmonic = FALSE,period = 365,
     }
   
   
-  return(list(GG==GG,FF = FF))
+  return(list(GG=GG,FF = FF))
 }
