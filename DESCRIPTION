@@ -16,7 +16,8 @@ Imports:
   lubridate,
   ggplot2,
   tidyverse,
-  Matrix
+  Matrix,
+  rSPDE
 Suggests:
 Remotes: 
 LazyData: true
