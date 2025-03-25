@@ -25,6 +25,7 @@
 #' lars.erik.gangsei@@vetinst.no\cr
 #' +47 950 61 231
 #' 
+#' @import sf
 #' @import ggplot2
 #' @import rnaturalearth
 #' 
@@ -39,7 +40,7 @@
 #'
 #' @export
 ScatterMap <- function(Country_name = 'Norway',
-                       Coord_lims = list(lat = c(5,35),long = c(57,72)),
+                       Coord_lims = list(long = c(5,35),lat = c(57,72)),
                        Plot_df,cex.point = 4,scale_lims = NULL) 
 {
   # Get a polygon of interest (SpatialPolygons)
@@ -48,19 +49,19 @@ ScatterMap <- function(Country_name = 'Norway',
   
   if(is.null(Coord_lims))
   {
-    Coord_lims <- st_bbox(country$geometry)
+    Coord_lims <- sf::st_bbox(country$geometry)
     Coord_lims = list(lat = Coord_lims[c('xmin','xmax')],
                       long = Coord_lims[c('ymin','ymax')])
     names(Coord_lims$lat) <- names(Coord_lims$long)  <- rep('',2)
   }
   
   RedMap <-  sf::st_intersection(country, 
-              sf::st_as_sfc(st_bbox(c(xmin = Coord_lims$long[1], 
+              sf::st_as_sfc(sf::st_bbox(c(xmin = Coord_lims$long[1], 
                                       ymin = Coord_lims$lat[1], 
                                       xmax = Coord_lims$long[2], 
                                       ymax = Coord_lims$lat[2]), 
                                             crs = sf::st_crs(country))))
-  Ocean <- st_difference(st_as_sfc(st_bbox(c(xmin = Coord_lims$long[1]-1, 
+  Ocean <- sf::st_difference(sf::st_as_sfc(sf::st_bbox(c(xmin = Coord_lims$long[1]-1, 
                                              ymin = Coord_lims$lat[1]-1, 
                                              xmax = Coord_lims$long[2]+1, 
                                              ymax = Coord_lims$lat[2]+1),

@@ -15,6 +15,7 @@
 #' @param trend [\code{logical}]. Set till "TRUE" if (one common) trend is to be included.
 #' @param harmonic [\code{logical}]. Set till "TRUE" if (one common) seasonal effect is yto be included.
 #' @param n_waves [\code{numeric}]. The number of harmonic waves.
+#' @param regions [\code{factor}]. Vector giving different regions. Ignored if set to \code{NULL}
 #' @return A block diagonal matrix whose upper left element has dimension [q x q], 
 #' with structure \eqn{sigma_d^2} \eqn{C[nu](d)}, where \eqn{C[nu](d)} is the matern 
 #' Covariance function and \eqn{sigma_d^2} is a positive scalar. The lower right
@@ -35,9 +36,9 @@
 #'
 #'
 #' @export
-DLM_Get_W <- function(q=1,matern = FALSE,dist = NULL,kappa = 10,nu=1/5,sigma=1,
+DLM_Get_W <- function(q=1,matern = FALSE,dist = NULL,kappa = 10,nu=1/5,
                     sigma_d2 = 1, sigma_t2=1,trend = FALSE,harmonic = FALSE,
-                    n_waves = 1)
+                    n_waves = 1,regions = FALSE)
   {
   # The first block, if not matern, then Identety(q)
   if(matern == TRUE)
@@ -46,11 +47,13 @@ DLM_Get_W <- function(q=1,matern = FALSE,dist = NULL,kappa = 10,nu=1/5,sigma=1,
     {
       dist <- sp::spDists(dist,longlat=TRUE)
     }
-    WW <- rSPDE::matern.covariance(dist,kappa = kappa, nu = nu, sigma = sigma)
+    WW <- rSPDE::matern.covariance(dist,kappa = kappa, nu = nu, sigma = sqrt(sigma_d2))
     q <- dim(WW)[1]
-  }else{WW <- diag(q)} 
+  }else{WW <- sigma_d2*diag(q)} 
+  
+  
   
   # Add trend
-  WW <- Matrix::bdiag(WW,diag(as.numeric(trend)+2*as.numeric(harmonic)*n_waves))
+  WW <- Matrix::bdiag(WW,sigma_t2*diag(as.numeric(trend)+2*as.numeric(harmonic)*n_waves))
   return(WW)
 }

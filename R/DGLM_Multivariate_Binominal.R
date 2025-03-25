@@ -77,8 +77,8 @@ DGLM_Multivariate_Binominal <- function(Data,GG,FF,m0, C0, W = NULL,delta = 0.75
     # Remove observations with no observations of individuals at risk
     idxOK <- which(Nt>0)
     
-    yt <- yt[idxOK]
-    Nt <- Nt[idxOK]
+    yt <- yt[idxOK,]
+    Nt <- Nt[idxOK,]
     Ft <- as.matrix(FF[,idxOK])
     qqt <- dim(Ft)[2]
     

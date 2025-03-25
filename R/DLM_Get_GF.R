@@ -5,7 +5,8 @@
 #' @details ...
 #' @param q [\code{numeric}]. The number/ length of the multivariate response.
 #' @param trend [\code{logical}]. Set till "TRUE" if (one common) trend is to be included.
-#' @param harmonic [\code{logical}]. Set till "TRUE" if (one common) seasonal effect is yto be included.
+#' @param harmonic [\code{logical}]. Set till "TRUE" if (one common) seasonal 
+#' effect is to be included.
 #' @param period [\code{numeric}]. Time period for the harmonic wave, I.e. the number of 
 #' time units in one full cycle.
 #' @param freq [\code{numeric}]. The number of peaks within each time period.
