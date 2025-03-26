@@ -17,7 +17,14 @@ Imports:
   ggplot2,
   tidyverse,
   Matrix,
-  rSPDE
+  rSPDE,
+  dplyr, 
+  gdistance,
+  mvtnorm,
+  rgeos,
+  rnaturalearth,
+  sf,
+  sp
 Suggests:
 Remotes: 
 LazyData: true
