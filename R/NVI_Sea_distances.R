@@ -38,8 +38,7 @@ NVI_Sea_distances <- function(sea_shape_path = file.path('//vetinst.no\\dfs-fell
                     'hav_300_100','hdr.adf'),
                     location, 
                     radius = 200000,
-                    resolution = 100,
-                    use_paralell=TRUE) 
+                    resolution = 100) 
 {
   # Set some options fpr the rasteroptions
   rasterOptions(maxmemory = 32e+09)

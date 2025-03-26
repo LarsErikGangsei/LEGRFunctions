@@ -10,12 +10,12 @@ DLM_Get_W(
   dist = NULL,
   kappa = 10,
   nu = 1/5,
-  sigma = 1,
   sigma_d2 = 1,
   sigma_t2 = 1,
   trend = FALSE,
   harmonic = FALSE,
-  n_waves = 1
+  n_waves = 1,
+  regions = FALSE
 )
 }
 \arguments{
@@ -30,8 +30,6 @@ or a data frame/ matrix with two columns giving longnitude (first column), and l
 
 \item{nu}{[\code{numeric}] Range parameter passed directly to \code{rSPDE::matern.covariance()}.}
 
-\item{sigma}{[\code{numeric}] Range parameter passed directly to \code{rSPDE::matern.covariance()}.}
-
 \item{sigma_d2}{[\code{numeric}] Scaling variance parameter for the "matern block"}
 
 \item{sigma_t2}{[\code{numeric}] Scaling variance parameter for the "trend/ season block"}
@@ -41,6 +39,10 @@ or a data frame/ matrix with two columns giving longnitude (first column), and l
 \item{harmonic}{[\code{logical}]. Set till "TRUE" if (one common) seasonal effect is yto be included.}
 
 \item{n_waves}{[\code{numeric}]. The number of harmonic waves.}
+
+\item{regions}{[\code{factor}]. Vector giving different regions. Ignored if set to \code{NULL}}
+
+\item{sigma}{[\code{numeric}] Range parameter passed directly to \code{rSPDE::matern.covariance()}.}
 }
 \value{
 A block diagonal matrix whose upper left element has dimension [q x q], 

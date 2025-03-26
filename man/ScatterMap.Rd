@@ -6,7 +6,7 @@
 \usage{
 ScatterMap(
   Country_name = "Norway",
-  Coord_lims = list(lat = c(5, 35), long = c(57, 72)),
+  Coord_lims = list(long = c(5, 35), lat = c(57, 72)),
   Plot_df,
   cex.point = 4,
   scale_lims = NULL
