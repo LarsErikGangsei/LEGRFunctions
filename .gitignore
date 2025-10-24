@@ -2,3 +2,6 @@
 .Rhistory
 .RData
 .Ruserdata
+LEGRFunctions.Rcheck/
+LEGRFunctions*.tar.gz
+LEGRFunctions*.tgz

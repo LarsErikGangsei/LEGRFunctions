@@ -21,7 +21,6 @@
 #' @import sf
 #' @import gdistance
 #' @import sf
-#' @import rgeos
 #' @import tidyverse
 #' 
 #' @examples

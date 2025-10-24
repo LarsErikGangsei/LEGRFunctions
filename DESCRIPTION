@@ -21,7 +21,6 @@ Imports:
   dplyr, 
   gdistance,
   mvtnorm,
-  rgeos,
   rnaturalearth,
   sf,
   sp
